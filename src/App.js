@@ -1,18 +1,21 @@
 import { Route, Routes } from "react-router-dom";
-
-import { AllMeetupsPage } from "./pages/AllMeetups";
-import NewMeetupPage from "./pages/NewMeetup";
-import FavoritesPage from "./pages/Favorites";
-import { MainNavigation } from "./components/MainNavigation";
-
+import React from "react";
+import { AllMeetupsPage as ListadoPokemonPage } from "./pokemon/pages/ListadoPokemon";
+import AltaPage from "./pokemon/pages/Alta";
+import { MainNavigation } from "./layout/MainNavigation";
+import { ModificacionPage } from "./pokemon/pages/Modificacion";
+import { CarritoPage } from "./carrito/pages/CarritoPage";
 function App() {
   return (
     <div>
-      <MainNavigation />
+      <MainNavigation>
+        <div>Formulario</div>
+      </MainNavigation>
       <Routes>
-        <Route path="/" element={<AllMeetupsPage />} />
-        <Route path="/new-meetup" element={<NewMeetupPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/" element={<ListadoPokemonPage />} />
+        <Route path="/alta" element={<AltaPage />} />
+        <Route path="/modificacion/:id" element={<ModificacionPage />} />
+        <Route path="/carrito" element={<CarritoPage />} />
       </Routes>
     </div>
   );
